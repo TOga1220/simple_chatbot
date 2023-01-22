@@ -1,8 +1,13 @@
+import os
+import string
+from pathlib import Path
+path = Path(__file__).resolve().parent.parent
 
-# View
-class TalkView:   
-  # Viewに表示
-  def show(self, name):
-      print(f'And the quote is : {name}')
-   
-  
+def get_template(file_name):
+    with open(os.path.join(path, f"template/{file_name}")) as f:
+        contents = f.read()
+        contents = contents.rstrip(os.linesep)
+        contents = '{splitter}{sep}{contents}{sep}{splitter}{sep}'.format(
+          contents=contents, splitter="=" * 40, sep=os.linesep)
+        return string.Template(contents)
+        
