@@ -36,9 +36,15 @@ class LanguageChatModel(ChatModel):
 
     @_hello_decorator
     def recommend_language(self):
-        new_recommend = self.ranking_model.get_most_popular()
+        new_recommend = self.rank_model.get_most_popular()
         if not new_recommend:
             return None
+        with open(os.path.join(path, "template/recommend.txt")) as f:
+            text_file = string.Template(f.read())
+        print(text_file.substitute({
+            'user_name':  self.user_name,
+            'new_recommend': new_recommend
+            }))
         
         
     @_hello_decorator    

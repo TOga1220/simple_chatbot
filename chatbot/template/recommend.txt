@@ -1,0 +1,3 @@
+Hi, $user_name san.
+
+My favorite language is $new_recommend

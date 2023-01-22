@@ -34,7 +34,15 @@ class RankModel(object):
                     "name": language_name,
                     "count": count,
                 })
+                
+    def get_most_popular(self):
+        if not self.data:
+            return None
 
+        sorted_data = sorted(self.data, key=self.data.get, reverse=True)
+        for name in sorted_data:
+            return name
+        
             
 
             

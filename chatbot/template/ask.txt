@@ -1,3 +1,1 @@
-Hi, $user_name san.
-
 What is your favorite language?
